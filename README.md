@@ -32,33 +32,33 @@ El objetivo de Instant Delight es proporcionar una plataforma fácil de usar par
 
 Abre tu cliente MySQL (por ejemplo, MySQL Workbench o la línea de comandos de MySQL) y ejecuta los siguientes comandos para crear las bases de datos y las tablas necesarias:
 
-CREATE DATABASE login_db;
-USE login_db;
+      CREATE DATABASE login_db;
+      USE login_db;
 
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL  
-);
-
-CREATE DATABASE IF NOT EXISTS instant_delight;
-USE instant_delight;
-
-CREATE TABLE IF NOT EXISTS comentarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario VARCHAR(50),
-    texto TEXT,
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    likes INT DEFAULT 0
-);
-
-CREATE TABLE IF NOT EXISTS likes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    comentario_id INT,
-    usuario VARCHAR(50),
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (comentario_id) REFERENCES comentarios(id) ON DELETE CASCADE
-);
+      CREATE TABLE users (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          username VARCHAR(50) NOT NULL UNIQUE,
+          password VARCHAR(255) NOT NULL  
+      );
+      
+      CREATE DATABASE IF NOT EXISTS instant_delight;
+      USE instant_delight;
+      
+      CREATE TABLE IF NOT EXISTS comentarios (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          usuario VARCHAR(50),
+          texto TEXT,
+          fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          likes INT DEFAULT 0
+      );
+      
+      CREATE TABLE IF NOT EXISTS likes (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          comentario_id INT,
+          usuario VARCHAR(50),
+          fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          FOREIGN KEY (comentario_id) REFERENCES comentarios(id) ON DELETE CASCADE
+      );
 
 3. Configura la conexión a la base de datos en PHP:
 
