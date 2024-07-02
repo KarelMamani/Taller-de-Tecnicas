@@ -64,19 +64,19 @@ Abre tu cliente MySQL (por ejemplo, MySQL Workbench o la línea de comandos de M
 
 Abre el archivo db_connection.php y configura las credenciales de tu base de datos:
 
-<?php
-$host = "localhost";
-$db_name = "login_db";
-$username = "root";
-$password = "";
-
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
-?>
+      <?php
+      $host = "localhost";
+      $db_name = "login_db";
+      $username = "root";
+      $password = "";
+      
+      try {
+          $conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      } catch(PDOException $e) {
+          echo "Connection failed: " . $e->getMessage();
+      }
+      ?>
 
 5. Inicia el servidor web:
 
